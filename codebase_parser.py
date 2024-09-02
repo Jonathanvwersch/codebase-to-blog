@@ -1,23 +1,9 @@
 import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 def traverse_codebase_from_url(repo_url):
-    """
-    Traverses a public GitHub repo and creates a nested dictionary representing the structure.
-    Uses a Personal Access Token from .env file for authentication.
-
-    Args:
-    repo_url: The URL of the Github repository
-
-    Returns:
-    dict: A nested dictionary representing the repository structure
-    """
     owner, repo = repo_url.split("/")[-2:]
-
     token = os.getenv("GITHUB_TOKEN")
     headers = {"Authorization": f"token {token}"} if token else {}
 
@@ -44,16 +30,4 @@ def traverse_codebase_from_url(repo_url):
         contents = fetch_contents(path)
         return {item["name"]: process_item(item) for item in contents}
 
-    try:
-        repo_structure = traverse_codebase_from_url(
-            "https://github.com/Jonathanvwersch/ai-community-notes"
-        )
-        print(repo_structure)
-    except requests.exceptions.HTTPError as e:
-        print(f"An HTTP error occurred: {e}")
-        if e.response.status_code == 403 and "rate limit exceeded" in str(e).lower():
-            print(
-                "You've hit the GitHub API rate limit. Check your GITHUB_TOKEN in the .env file."
-            )
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    return traverse_directory()
