@@ -8,7 +8,7 @@ class RetrievalSystem:
         self.embeddings = embeddings
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
 
-    def retrieve(self, query, top_k=5):
+    def retrieve(self, query, top_k=20):
         """
         Retrieve the most relevant chunks for a given query.
 

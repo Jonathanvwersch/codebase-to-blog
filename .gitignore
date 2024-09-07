@@ -1,1 +1,24 @@
+# Environment files
 .env
+.env.*
+
+# Python virtual environments
+venv/
+*/venv/
+
+# Node.js modules
+node_modules/
+client/node_modules/
+
+# Python cache
+__pycache__/
+*/__pycache__/
+
+# Build/next.js caches
+client/.next
+
+# Ignore macOS system files
+.DS_Store
+
+# Log files
+*.log

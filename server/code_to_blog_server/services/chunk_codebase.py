@@ -38,5 +38,6 @@ def chunk_parsed_code(codebase_dict, max_chunk_size=1000):
             for name, content in item.items():
                 process_item(content, f"{path}/{name}" if path else name)
 
+
     process_item(codebase_dict, "")
     return chunks
