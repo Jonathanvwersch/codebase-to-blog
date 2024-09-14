@@ -16,8 +16,8 @@ export default function IndexPage() {
         </p>
       </div>
       <div className="flex gap-4">
-        <Link href="/generate" className={buttonVariants()}>
-          Generate blog
+        <Link href="/query" className={buttonVariants()}>
+          Query
         </Link>
       </div>
     </section>

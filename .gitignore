@@ -22,3 +22,5 @@ client/.next
 
 # Log files
 *.log
+
+server/faiss_index.*
